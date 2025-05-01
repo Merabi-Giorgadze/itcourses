@@ -761,6 +761,27 @@
     }
 }
 
+@media (max-width: 536px) {
+    .cookie-banner {
+        left: 2px;
+        right: 2px;
+    }
+
+    .cookie-content p {
+        font-size: 0.7rem;
+    }
+
+    .cookie-content {
+        font-size: 0.7rem;
+    }
+
+    .cookie-content button {
+        background: #039baf;
+        color: #0e0601;
+        padding: 2px 5px;
+    }
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
