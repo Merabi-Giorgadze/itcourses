@@ -128,13 +128,13 @@
 }
 
 .partner-card {
-    background: #c8eed0;
+    background: linear-gradient(90deg,rgba(237, 221, 83, 0.2) 0%, rgba(87, 199, 133, 0.3) 50%, rgba(42, 123, 155, 0.1) 100%);
     padding: 20px;
-    border-radius: 16px 2px;
+    border-radius: 50%;
     box-shadow: 0 10px 20px rgba(3, 27, 68, 0.037);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 100px;
-    border: 2px solid black;
+    border: 3px double #f74c09;
 }
 
 .partner-card:hover {
@@ -148,6 +148,12 @@
     object-fit: contain;
     filter: brightness(1.2);
     mix-blend-mode: multiply;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    background: transparent;
+    filter: brightness(1.2) contrast(1.1);
+    mask-image: radial-gradient(circle, (0, 0, 0, 0.9) 30%, rgbargba(0, 0, 0, 0) 60%);
+    -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0.2) 90%);
 }
 
 @media (max-width: 600px) {
@@ -226,12 +232,14 @@
 
 
 
-.about {
+.about,
+.infrastructure {
     padding: 80px 20px;
     background: #fff;
 }
 
-.about-wrapper {
+.about-wrapper,
+.infrastructure-wrapper {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
@@ -239,40 +247,47 @@
     justify-content: center;
 }
 
-.about-image {
+.about-image,
+.infrastructure-image {
     flex: 1 1 400px;
     text-align: center;
 }
 
-.about-image img {
+.about-image img,
+.infrastructure-image img {
     max-width: 100%;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.about-content {
+.about-content,
+.infrastructure-content {
     flex: 1 1 500px;
 }
 
-.about-content h2 {
+.about-content h2,
+.infrastructure-content h2{
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: #333;
 }
 
-.about-content p {
+.about-content p,
+.ainfrastructure-content p {
     font-size: 1rem;
     color: #555;
     margin-bottom: 20px;
     line-height: 1.6;
 }
 
-.about-content ul {
+.about-content ul,
+.ainfrastructure-content ul {
     margin-bottom: 20px;
     padding-left: 20px;
 }
 
-.about-content ul li {
+.about-content ul ,
+.ainfrastructure-content ul li {
     font-size: 1rem;
     margin-bottom: 10px;
     color: #444;

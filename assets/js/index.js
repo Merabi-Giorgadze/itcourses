@@ -168,15 +168,25 @@ galleryItems.forEach(item => {
 
         modalImage.src = imageSrc;
         modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
     });
 });
 
 // Закрытие модального окна
-if (closeModal){
+if (closeModal) {
     closeModal.addEventListener('click', () => {
         modal.style.display = 'none';
+        document.body.style.overflow = '';
     });
 }
+
+window.addEventListener('wheel', (e) => {
+    if (modal.style.display === 'flex') {
+        e.preventDefault();
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}, { passive: false });
 
 
 // Закрытие модального окна при клике вне его области
