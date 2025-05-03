@@ -168,33 +168,15 @@ galleryItems.forEach(item => {
 
         modalImage.src = imageSrc;
         modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
     });
 });
 
 // Закрытие модального окна
-if (closeModal) {
+if (closeModal){
     closeModal.addEventListener('click', () => {
         modal.style.display = 'none';
-        document.body.style.overflow = '';
     });
 }
-
-let touchStartY = 0;
-
-modal.addEventListener('touchstart', (e) => {
-    touchStartY = e.touches[0].clientY;
-});
-
-modal.addEventListener('touchmove', (e) => {
-    const touchEndY = e.touches[0].clientY;
-    const touchDiff = touchEndY - touchStartY;
-
-    if (Math.abs(touchDiff) > 50) { // 50px-ზე მეტი გადაადგილება ითვლება "swipe"-ად
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-    }
-});
 
 
 // Закрытие модального окна при клике вне его области
