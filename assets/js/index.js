@@ -159,6 +159,11 @@ const modal = document.getElementById('modal');
 const modalImage = document.getElementById('modal-image');
 const closeModal = document.getElementById('close-modal');
 
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+
 // Открытие модального окна
 galleryItems.forEach(item => {
     item.addEventListener('click', () => {
@@ -179,14 +184,31 @@ if (closeModal){
 }
 
 
+
 // Закрытие модального окна при клике вне его области
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
+window.addEventListener('click', (e) => { 
+    if (e.target === modal || e.target === modalImage) {
+        modal.style.display = 'none';
+    }
+});  
+
+modal.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].clientX;
+    touchStartY = e.changedTouches[0].clientY;
+});
+
+modal.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].clientX;
+    touchEndY = e.changedTouches[0].clientY;
+
+    const diffX = Math.abs(touchEndX - touchStartX);
+    const diffY = Math.abs(touchEndY - touchStartY);
+
+    // თუ ნებისმიერი მიმართულებით გავწიეთ თითი საკმარისი მანძილით
+    if (diffX > 30 || diffY > 30) {
         modal.style.display = 'none';
     }
 });
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
     const banner = document.getElementById("cookieBanner");
