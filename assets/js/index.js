@@ -180,13 +180,21 @@ if (closeModal) {
     });
 }
 
-window.addEventListener('wheel', (e) => {
-    if (modal.style.display === 'flex') {
-        e.preventDefault();
+let touchStartY = 0;
+
+modal.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+});
+
+modal.addEventListener('touchmove', (e) => {
+    const touchEndY = e.touches[0].clientY;
+    const touchDiff = touchEndY - touchStartY;
+
+    if (Math.abs(touchDiff) > 50) { // 50px-ზე მეტი გადაადგილება ითვლება "swipe"-ად
         modal.style.display = 'none';
         document.body.style.overflow = '';
     }
-}, { passive: false });
+});
 
 
 // Закрытие модального окна при клике вне его области

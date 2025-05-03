@@ -1,5 +1,6 @@
 {
     "tailwindCSS.colorDecorators": false,
-    "editor.colorDecorators": true
+    "editor.colorDecorators": true,
+    "liveServer.settings.port": 5501
 
 }

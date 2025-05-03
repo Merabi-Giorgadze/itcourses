@@ -302,6 +302,9 @@
     text-decoration: none;
     font-weight: bold;
     transition: background 0.3s;
+    width:100%;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .btn-about:hover {
